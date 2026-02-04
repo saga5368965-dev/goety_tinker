@@ -1,0 +1,6 @@
+{
+  "parent": "tconstruct:item/toolpart",
+  "textures": {
+    "layer0": "goety_tinker:item/tool/special_staff/staff_handle"
+  }
+}

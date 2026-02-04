@@ -1,35 +1,82 @@
-package saga.goety_tinker;
+package saga.goety_tinker.item;
 
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.LivingEntity;
+import com.Polarice3.Goety.api.items.magic.IWand;
+import com.Polarice3.Goety.api.magic.SpellType;
+import com.Polarice3.Goety.common.items.capability.SoulUsingItemCapability;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
-import slimeknights.tconstruct.library.tools.item.ModifiableItem;
-import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.util.LazyOptional;
+import saga.goety_tinker.client.renderer.SpecialStaffRenderer;
+import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
-import java.util.ArrayList;
+import slimeknights.tconstruct.library.tools.item.IModifiable;
+import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 
-public class SpecialStaffItem extends ModifiableItem {
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.function.Consumer;
+
+public class SpecialStaffItem extends ModifiableItem implements IWand, IModifiable {
+
     public SpecialStaffItem(Properties properties, ToolDefinition toolDefinition) {
         super(properties, toolDefinition);
     }
 
-    // 攻撃時にデバフを付与する（絶対解除不能仕様）
     @Override
-    public boolean dealDamage(IToolStackView tool, LivingEntity player, LivingEntity target, float damage, boolean isCritical, boolean fullyCharged) {
-        boolean result = super.dealDamage(tool, player, target, damage, isCritical, fullyCharged);
-
-        if (result && !target.level().isClientSide) {
-            // 例：移動速度低下を付与
-            MobEffectInstance effect = new MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 200, 2);
-
-            // 【重要】時間切れ以外に絶対解除できない仕様にする
-            // curativeItemsを空にすることで、ミルクなどでの解除を封じます
-            effect.setCurativeItems(new ArrayList<>());
-
-            target.addEffect(effect);
-        }
-        return result;
+    public SpellType getSpellType() {
+        return SpellType.NONE;
     }
 
-    // Goetyのフォーカス機能などはここに追加のロジックを実装します
+    @Override
+    @Nullable
+    public ICapabilityProvider initCapabilities(@Nonnull ItemStack stack, @Nullable CompoundTag nbt) {
+        return new CombinedProvider(stack);
+    }
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new IClientItemExtensions() {
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return new SpecialStaffRenderer(
+                        Minecraft.getInstance().getBlockEntityRenderDispatcher(),
+                        Minecraft.getInstance().getEntityModels()
+                );
+            }
+        });
+    }
+
+    private static class CombinedProvider implements ICapabilityProvider {
+        private final ToolCapabilityProvider tic;
+        private final SoulUsingItemCapability goety;
+
+        public CombinedProvider(ItemStack stack) {
+            this.tic = new ToolCapabilityProvider(stack);
+            this.goety = new SoulUsingItemCapability(stack);
+        }
+
+        @Override
+        @Nonnull
+        public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
+            LazyOptional<T> g = goety.getCapability(cap, side);
+            if (g.isPresent()) return g;
+            return tic.getCapability(cap, side);
+        }
+    }
+
+    @Override
+    public CompoundTag getShareTag(ItemStack stack) {
+        return super.getShareTag(stack);
+    }
+
+    @Override
+    public void readShareTag(ItemStack stack, @Nullable CompoundTag nbt) {
+        super.readShareTag(stack, nbt);
+    }
 }

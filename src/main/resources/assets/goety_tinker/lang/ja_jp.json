@@ -1,0 +1,11 @@
+{
+  "item.goety_tinker.staff_handle": "秘術の杖の柄",
+  "item.goety_tinker.staff_head": "秘術の杖の頭",
+  "item.goety_tinker.staff_core": "秘術の杖の芯",
+  "item.goety_tinker.special_staff": "秘術の杖",
+  "item.goety_tinker.special_staff.description": "Tinkers' Constructの技術を用いて作られた、Goetyの魔術を詠唱可能な特殊な杖。",
+  "itemGroup.goety_tinker_tab": "Goety-Tinker: 兵装工廠",
+  "item.goety_tinker.staff_handle.description": "杖の持ち手部分。操作性に影響します。",
+  "item.goety_tinker.staff_head.description": "杖の先端部分。魔力の威力に影響します。",
+  "item.goety_tinker.staff_core.description": "杖の核。耐久性と安定性に寄与します。"
+}

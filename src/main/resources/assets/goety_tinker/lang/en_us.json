@@ -1,0 +1,8 @@
+{
+  "item.goety_tinker.staff_handle": "Arcane Staff Handle",
+  "item.goety_tinker.staff_head": "Arcane Staff Head",
+  "item.goety_tinker.staff_core": "Arcane Staff Core",
+  "item.goety_tinker.special_staff": "Special Arcane Staff",
+  "item.goety_tinker.special_staff.description": "A specialized staff made with Tinkers' Construct technology, capable of casting Goety spells.",
+  "itemGroup.goety_tinker_tab": "Goety-Tinker: Ordnance"
+}
