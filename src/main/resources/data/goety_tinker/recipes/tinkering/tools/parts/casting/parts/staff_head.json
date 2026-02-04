@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "goety:cursed_ingot"
+  },
+  "cast_consumed": false,
+  "fluid": {
+    "tag": "tconstruct:molten_metals",
+    "amount": 144
+  },
+  "result": {
+    "item": "goety_tinker:staff_handle"
+  },
+  "result": "goety_tinker:staff_head",
+  "cooling_time": 80
+}

@@ -1,0 +1,11 @@
+{
+  "parts": [
+    "goety_tinker:staff_handle",
+    "goety_tinker:staff_core",
+    "goety_tinker:staff_head"
+  ],
+  "stats": {
+    "tconstruct:attack_damage": 3.0,
+    "tconstruct:attack_speed": 1.2
+  }
+}

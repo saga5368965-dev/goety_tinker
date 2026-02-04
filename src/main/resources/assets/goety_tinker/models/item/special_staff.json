@@ -1,0 +1,8 @@
+{
+  "loader": "tconstruct:tool",
+  "textures": {
+    "layer0": "goety_tinker:item/staff_handle",
+    "layer1": "goety_tinker:item/staff_head",
+    "layer2": "goety_tinker:item/staff_core"
+  }
+}

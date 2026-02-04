@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/handle"
+  },
+  "cast_consumed": false,
+  "fluid": {
+    "tag": "tconstruct:molten_metals",
+    "amount": 144
+  },
+  "result": {
+    "item": "goety_tinker:staff_handle"
+  },
+  "cooling_time": 60
+}

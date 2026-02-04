@@ -1,0 +1,27 @@
+{
+  "parent": "builtin/entity",
+  "textures": {
+    "0": "goety_tinker:item/tool/special_staff/staff_core",
+    "particle": "goety_tinker:item/tool/special_staff/staff_core"
+  },
+  "elements": [
+    {
+      "name": "cube",
+      "from": [13.75, 28.75, 15.5],
+      "to": [15.75, 30.75, 17.5],
+      "rotation": {
+        "origin": [15.75, 28.75, 15.5],
+        "axis": "z",
+        "angle": -45
+      },
+      "faces": {
+        "north": {"uv": [0, 0, 2, 2], "texture": "#0"},
+        "east":  {"uv": [0, 14, 2, 16], "rotation": 270, "texture": "#0"},
+        "south": {"uv": [0, 0, 2, 2], "rotation": 180, "texture": "#0"},
+        "west":  {"uv": [0, 14, 2, 16], "rotation": 90, "texture": "#0"},
+        "up":    {"uv": [0, 14, 2, 16], "rotation": 180, "texture": "#0"},
+        "down":  {"uv": [1, 14, 3, 16], "texture": "#0"}
+      }
+    }
+  ]
+}

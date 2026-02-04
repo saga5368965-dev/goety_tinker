@@ -1,0 +1,9 @@
+{
+  "item": "yourmod:special_staff",
+  "tool_definition": "yourmod:special_staff",
+  "layout": [
+    { "x": 33, "y": 42, "filter": "tconstruct:staff_handle" },
+    { "x": 33, "y": 22, "filter": "yourmod:staff_head" },
+    { "x": 53, "y": 22, "filter": "yourmod:staff_core" }
+  ]
+}
