@@ -1,0 +1,6 @@
+{
+  "type": "tconstruct:part_builder",
+  "pattern": "goety_tinker:staff_handle",
+  "cost": 1,
+  "result": "goety_tinker:staff_handle"
+}

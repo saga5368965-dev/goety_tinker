@@ -1,8 +1,7 @@
 {
+  "parent": "forge:item/default",
   "loader": "tconstruct:tool",
   "textures": {
-    "layer0": "goety_tinker:item/tool/special_staff/staff_handle",
-    "layer1": "goety_tinker:item/tool/special_staff/staff_core",
-    "layer2": "goety_tinker:item/tool/special_staff/staff_head"
+    "tool": "goety_tinker:item/tool/special_staff/special_staff"
   }
 }

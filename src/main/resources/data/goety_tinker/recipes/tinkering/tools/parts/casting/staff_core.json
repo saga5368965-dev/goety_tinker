@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "minecraft:ender_pearl"
+  },
+  "cast_consumed": true,
+  "fluid": {
+    "tag": "tconstruct:molten_metals",
+    "amount": 90
+  },
+  "result": "goety_tinker:staff_core",
+  "cooling_time": 60
+}

@@ -61,3 +61,11 @@ mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+config = "goety_tinker.mixins.json"
+# ★ Tinkers' Construct への依存関係（これを追記）
+[[dependencies.goety_tinker]]
+modId = "tconstruct"
+mandatory = true
+versionRange = "[3.8,)"
+ordering = "AFTER"  # TiCの後に読み込む
+side = "BOTH"

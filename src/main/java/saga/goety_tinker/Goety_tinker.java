@@ -10,8 +10,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import saga.goety_tinker.client.ClientRegistration;
+import saga.goety_tinker.register.GTEvents;
 import saga.goety_tinker.register.GTItems;
+import saga.goety_tinker.register.GTModifiers;
 
 @Mod(Goety_tinker.MODID)
 public class Goety_tinker {
@@ -20,23 +21,26 @@ public class Goety_tinker {
 
     public Goety_tinker() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
+        // 過去の成功例に基づき、2つのレジストリを個別に登録する
         GTItems.ITEMS.register(modEventBus);
         GTItems.TINKER_ITEMS.register(modEventBus);
+
+        // Modifierの登録
+        GTModifiers.MODIFIERS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-            modEventBus.register(ClientRegistration.class);
+            GTEvents.register(modEventBus);
         });
-        forgeEventBus.register(this);
+
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        LOGGER.info("Goety Tinker: Common Setup Initializing...");
         event.enqueueWork(() -> {
-
+            LOGGER.info("Goety Tinker: Common Setup Initializing...");
         });
     }
 

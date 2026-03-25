@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "goety:dark_wand"
+  },
+  "cast_consumed": true,
+  "fluid": {
+    "tag": "tconstruct:molten_metals",
+    "amount": 90
+  },
+  "result": "goety_tinker:staff_handle",
+  "cooling_time": 60
+}

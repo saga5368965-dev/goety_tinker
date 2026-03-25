@@ -17,7 +17,10 @@ base {
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
-
+mixin {
+    add sourceSets.main, "goety_tinker.refmap.json"
+    config "goety_tinker.mixins.json"
+}
 minecraft {
     // The mappings can be changed at any time and must be in the following format.
     // Channel:   Version:
@@ -132,7 +135,7 @@ dependencies {
     implementation fg.deobf("curse.maven:patchouli-306770:6164575")
     implementation fg.deobf("curse.maven:tinkers-construct-74072:7371800")
     implementation fg.deobf("curse.maven:geckolib-388172:6333474")
-    implementation fg.deobf("curse.maven:goety-586095:7530044")
+    implementation fg.deobf("curse.maven:goety-586095:7799190")
     implementation fg.deobf("curse.maven:curios-309927:6238756")
     implementation fg.deobf("curse.maven:jei-238222:6075247")
 }

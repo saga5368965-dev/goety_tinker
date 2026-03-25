@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:tool_building",
+  "result": "goety_tinker:special_staff",
+  "pattern": [" H ", " C ", " S "],
+  "key": {
+    "H": {"item": "goety_tinker:staff_head"},
+    "C": {"item": "goety_tinker:staff_core"},
+    "S": {"item": "goety_tinker:staff_handle"}
+  }
+}
